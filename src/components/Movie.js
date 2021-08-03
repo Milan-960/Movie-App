@@ -11,7 +11,6 @@ const Movie = (props) => {
       </p>
       <h3>{props.releaseDate}</h3>
       <p>{props.openingText}</p>
-      <p>{props.planets}</p>
     </li>
   );
 };
