@@ -3,7 +3,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import AddMovie from "./components/AddMovie";
 import MoviesList from "./components/MoviesList";
 import "./App.css";
-import { darkmagenta } from "color-name";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -27,21 +26,23 @@ function App() {
         loadedMovies.push({
           id: key,
           title: data[key].title,
+          directorName: data[key].directorName,
           openingText: data[key].openingText,
           releaseDate: data[key].releaseDate,
         });
       }
 
-      const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.epispde_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
-          director: movieData.director,
-        };
-      });
-      setMovies(transformedMovies);
+      // const transformedMovies = data.results.map((movieData) => {
+      //   return {
+      //     id: movieData.epispde_id,
+      //     title: movieData.title,
+      //     openingText: movieData.opening_crawl,
+      //     releaseDate: movieData.release_date,
+      //     director: movieData.director,
+      //   };
+      // });
+
+      setMovies(loadedMovies);
       setIsLoading(false);
     } catch (error) {
       setError(error.message);

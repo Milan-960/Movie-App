@@ -6,6 +6,7 @@ function AddMovie(props) {
   const titleRef = useRef("");
   const openingTextRef = useRef("");
   const releaseDateRef = useRef("");
+  const directorNameRef = useRef("");
 
   function submitHandler(event) {
     event.preventDefault();
@@ -14,6 +15,7 @@ function AddMovie(props) {
 
     const movie = {
       title: titleRef.current.value,
+      directorName: directorNameRef.current.value,
       openingText: openingTextRef.current.value,
       releaseDate: releaseDateRef.current.value,
     };
@@ -28,6 +30,10 @@ function AddMovie(props) {
         <input type="text" id="title" ref={titleRef} />
       </div>
       <div className={classes.control}>
+        <label htmlFor="name">Director Name</label>
+        <input type="text" id="name" ref={directorNameRef} />
+      </div>
+      <div className={classes.control}>
         <label htmlFor="opening-text">Opening Text</label>
         <textarea rows="5" id="opening-text" ref={openingTextRef}></textarea>
       </div>
@@ -35,7 +41,7 @@ function AddMovie(props) {
         <label htmlFor="date">Release Date</label>
         <input type="text" id="date" ref={releaseDateRef} />
       </div>
-      <button>Add Movie</button>
+      <button> Add MoviesList</button>
     </form>
   );
 }
